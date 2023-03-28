@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Package IgnorableNamespaces="build rescap rescap3 uap uap5 uap8" xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:build="http://schemas.microsoft.com/developer/appx/2015/build" xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities" xmlns:rescap3="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities/3" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:uap5="http://schemas.microsoft.com/appx/manifest/uap/windows10/5" xmlns:uap8="http://schemas.microsoft.com/appx/manifest/uap/windows10/8">
+  <Identity Name="YourCompany.YourApplication" ProcessorArchitecture="x64" Publisher="CN=Your Company" Version="1.0.0.0"/>
+  <Properties>
+    <PublisherDisplayName>Your Company</PublisherDisplayName>
+    <DisplayName>Your Application</DisplayName>
+    <Logo>Assets\Store50x50Logo.png</Logo>
+  </Properties>
+  <Resources>
+    <Resource Language="en-US"/>
+    <Resource uap:Scale="100"/>
+    <Resource uap:Scale="125"/>
+    <Resource uap:Scale="150"/>
+    <Resource uap:Scale="200"/>
+    <Resource uap:Scale="400"/>
+  </Resources>
+  <Dependencies>
+    <TargetDeviceFamily MaxVersionTested="10.0.22621.0" MinVersion="10.0.17763.0" Name="Windows.Desktop"/>
+  </Dependencies>
+  <Capabilities>
+    <rescap:Capability Name="runFullTrust"/>
+  </Capabilities>
+  <Applications>
+    <Application EntryPoint="Windows.FullTrustApplication" Executable="AI_STUBS\AiStubX64.exe" Id="YourApplication">
+      <uap:VisualElements BackgroundColor="transparent" Description="QR_Gen" DisplayName="QR_Gen" Square150x150Logo="Assets\YourApplicationSquare150x150Logo.png" Square44x44Logo="Assets\YourApplicationSquare44x44Logo.png">
+        <uap:InitialRotationPreference>
+          <uap:Rotation Preference="portrait"/>
+          <uap:Rotation Preference="landscape"/>
+        </uap:InitialRotationPreference>
+        <uap:DefaultTile Square310x310Logo="Assets\YourApplicationSquare310x310Logo.png" Square71x71Logo="Assets\YourApplicationSquare71x71Logo.png" Wide310x150Logo="Assets\YourApplicationWide310x150Logo.png"/>
+        <uap:SplashScreen Image="Assets\YourApplicationSplashScreen.png"/>
+        <uap:LockScreen BadgeLogo="Assets\YourApplicationBadgeLogo.png" Notification="badge"/>
+      </uap:VisualElements>
+      <Extensions>
+        <uap5:Extension Category="windows.appExecutionAlias">
+          <uap5:AppExecutionAlias>
+            <uap8:ExecutionAlias Alias="QR_Gen.exe"/>
+          </uap5:AppExecutionAlias>
+        </uap5:Extension>
+        <rescap3:Extension Category="windows.desktopAppMigration" EntryPoint="Windows.FullTrustApplication" Executable="QR_Gen\QR_Gen.exe">
+          <rescap3:DesktopAppMigration>
+            <rescap3:DesktopApp ShortcutPath="%USERPROFILE%\Desktop\QR_Gen.lnk"/>
+          </rescap3:DesktopAppMigration>
+        </rescap3:Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+  <build:Metadata>
+    <build:Item Name="OperatingSystem" Version="10.0.22621.900"/>
+    <build:Item Name="AdvancedInstaller" Version="20.4.1 (97fac2b0)"/>
+    <build:Item Name="ProjectLicenseType" Version="professional"/>
+    <build:Item Name="SignTool.exe" Version="10.0.20348.1"/>
+    <build:Item Name="MakePri.exe" Version="10.0.20348.1"/>
+  </build:Metadata>
+</Package>
